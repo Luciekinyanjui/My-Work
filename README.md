@@ -9,10 +9,21 @@ Features of the To-Do List webapp
 
 -3 Add task
 
+## Author
+Lucy Kinyanjui.
+
 ## Project setup
 ```
 python manage.py runserver2
 ```
+## Technology used:
+1. Django
+2. Python
+3. Heroku
+5. Git and GitHub
+
+## Known Bugs
+There are no known bugs currently but pull requests are allowed incase you spot a bug
 
 ## CONTRIBUTING
 
