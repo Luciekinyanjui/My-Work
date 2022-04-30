@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title%}To-Do List{% endblock %}
+
+{% block content %}
+<br/>
+<div class="container">
+
+        <h2>My To-Do List</h2>
+        <p>Schedule {{day}}'s activites</p>
+        <form class="form-inline my-2 my-lg-0"   method="POST">
+                {% csrf_token %}
+            <input class="form-control mr-sm-2"  type="text" placeholder="Add New Task" name="activity">
+            <button class = "btn btn-primary my-2 my-sm-0" type="submit" >Add New Task</button>
+        </form>
+        <br/>
+        {% if act %}
+        <table class="table table-striped">
+            <thead>
+                
+                <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Status</th>
+                <th scope="col">Remove</th>
+                </tr>
+            </thead>
+                
+            <tbody>
+                {% for task in act %}      
+                <tr>
+                {%if task.completed%}
+                    
+                    <td class="striker">{{task.activity}}</td>
+                    
+                    <td>
+                        <a href="{% url 'uncheck' task.id %}"><span class="fas fa-check-square"></span></a>
+                    </td>
+                    <td><a href="{% url 'remove' task.id  %}">Delete</a></td>
+                    {% else %}
+                        <td>{{task.activity}}</td>
+                        
+                        <td>
+                            <a href="{% url 'check' task.id %}"><span class="far fa-square"></span></a>
+                            
+                            
+                        </td>
+                        <td><a href="{% url 'remove' task.id  %}">Delete</a></td>
+
+                {% endif %}
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+                
+        {% endif %}
+    </div>
+
+<br/>
+ 
+  
+
+{% endblock %}
+
