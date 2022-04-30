@@ -1,4 +1,4 @@
-# To_Do_List_verision_1
+# To_Do_List.
 A To-Do List app built with Django and Bootstrap.
 
 Features of the To-Do List webapp
